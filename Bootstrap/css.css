@@ -1,3 +1,16 @@
+#body{
+  color: #ffffff;
+  background-color: #2d2f33;
+}
+#bodyName{
+  font-size: 5rem;
+  margin:  3rem;
+  margin-bottom:7rem;
+}
+
+hr{
+  border-top:1px  #fff;
+}
 .container {
   max-width: 960px;
 }
@@ -80,6 +93,9 @@
   filter:brightness(40%);
 }
 
+img{
+  filter:brightness(80%);
+}
 /* MARKETING CONTENT
 -------------------------------------------------- */
 
