@@ -1,0 +1,21 @@
+{
+  "name": "node_js_bootstrap_project",
+  "version": "1.0.0",
+  "description": "node js express bootstrap view",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [
+    "node.js",
+    "express",
+    "bootstrap"
+  ],
+  "author": "Molodec",
+  "license": "ISC"
+}
