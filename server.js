@@ -1,19 +1,9 @@
 let express = require('express');
-let app = express();
 let fs = require('fs');
 let nodemailer = require('nodemailer');
 let bodyparser = require('body-parser');
 
-let testEmail = nodemailer.createTestAccount();
-let transporter = nodemailer.createTransport({ // тестовый ящик для отправки писем
-	  host:'gmail',
-      port: 587,
-      secure: false,
-      auth: {
-        user: 'testmailIvanIvanov123@gamil.com',
-        pass: '123456789A987654321'
-      }
-});
+let app = express();
 
 let urlencodedParser = bodyparser.urlencoded({extended: false});
 
@@ -32,13 +22,22 @@ app.get('/', urlencodedParser, function(req, res){
 	res.sendFile(currentPath + 'html.html');
 });
 app.post('/', urlencodedParser, function(req, res){
+	let transporter = nodemailer.createTransport({ // тестовый ящик для отправки писем
+	  	host:'smtp.gmail.com',
+      	port: 465,
+      	secure: true,
+      	auth: {
+        	user: 'testmailIvanIvanov123@gmail.com',
+        	pass: '123456789A987654321'
+      }
+	});
+
 	let mailData = {
 		from: req.body.email,
-		to: 'aawtgtqsclnloxniys@ttirv.org', // тестовый ящик для приема писем
-		subject: "Ну как там с деньгами?",
+		to: 'dhktkzrttqvdhakqfi@awdrt.net', // тестовый ящик для приема писем
+		subject: req.body.email,
       	text: req.body.desc_text
 	};
-
 	let result = transporter.sendMail(mailData, function(err, res){
 		if(err){
 			console.log(err);
@@ -47,6 +46,8 @@ app.post('/', urlencodedParser, function(req, res){
 
 		}
 	});
+
+	res.sendFile(currentPath + 'html.html');
 });
 
 let port = '8080';
