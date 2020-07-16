@@ -1,5 +1,7 @@
-const mainRoute = require('./main_routes.js');
+const aboutRoute = require('./about_route.js');
+const redirectRoute = require('./redirect_route.js');
 
 module.exports = function(app){
-	mainRoute(app);
+	aboutRoute(app);
+	redirectRoute(app);
 }
